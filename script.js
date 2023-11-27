@@ -1,12 +1,15 @@
+// Get the references to the game elements
 var ball = document.getElementById('ball');
 var rod1 = document.getElementById('rod1');
 var rod2 = document.getElementById('rod2');
 
+// Define constant values for storing player names and scores
 const storeName = "PPName";
 const storeScore = "PPMaxScore";
 const rod1Name = "Rod 1";
 const rod2Name = "Rod 2";
 
+// Initialize game variables
 let score,
     maxScore,
     movement,
@@ -19,6 +22,7 @@ let gameOn = false;
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
 
+// Check local storage for existing player data
 (function () {
     rod = localStorage.getItem(storeName);
     maxScore = localStorage.getItem(storeScore);
@@ -34,6 +38,7 @@ let windowHeight = window.innerHeight;
     resetBoard(rod);
 })();
 
+// Reset the game board based on the chosen player
 function resetBoard(rodName) {
     rod1.style.left = (windowWidth - rod1.offsetWidth) / 2 + 'px';
     rod2.style.left = (windowWidth - rod2.offsetWidth) / 2 + 'px';
@@ -52,6 +57,7 @@ function resetBoard(rodName) {
     gameOn = false;
 }
 
+// Store the winning player's data
 function storeWin(rod, score) {
     if (score > maxScore) {
         maxScore = score;
@@ -64,6 +70,8 @@ function storeWin(rod, score) {
 
     alert(rod + " wins with a score of " + (score * 100) + ". Max score is: " + (maxScore * 100));
 }
+
+// Set up event listener for keypress and game initialization
 let rod1X;
 let rod2X;
 window.addEventListener('keypress', function (event) {
@@ -92,6 +100,7 @@ window.addEventListener('keypress', function (event) {
             let rod2Width = rod2.offsetWidth;
 
             movement = setInterval(function () {
+              // Move ball
                 ballX += ballSpeedX;
                 ballY += ballSpeedY;
 
@@ -102,22 +111,29 @@ window.addEventListener('keypress', function (event) {
                 ball.style.top = ballY + 'px';
 
                 if ((ballX + ballDia) > windowWidth || ballX < 0) {
-                    ballSpeedX = -ballSpeedX;
+                    ballSpeedX = -ballSpeedX; // Reverses the direction of the ball
                 }
 
+              
+                 // It specifies the center of the ball on the viewport
                 let ballPos = ballX + ballDia / 2;
-
+              
+                 // Check for Rod 1
                 if (ballY <= rod1Height) {
-                    ballSpeedY = -ballSpeedY;
+                    ballSpeedY = -ballSpeedY;// Reverses the direction
                     score++;
-
+                  
+                    // Check if the game ends
                     if ((ballPos < rod1X) || (ballPos > (rod1X + rod1Width))) {
                         storeWin(rod2Name, score);
                     }
-                } else if ((ballY + ballDia) >= (windowHeight - rod2Height)) {
-                    ballSpeedY = -ballSpeedY;
-                    score++;
 
+                   // Check for Rod 2
+                } else if ((ballY + ballDia) >= (windowHeight - rod2Height)) {
+                    ballSpeedY = -ballSpeedY;// Reverses the direction 
+                    score++;
+                  
+                     // Check if the game ends
                     if ((ballPos < rod2X) || (ballPos > (rod2X + rod2Width))) {
                         storeWin(rod1Name, score);
                     }
@@ -126,4 +142,3 @@ window.addEventListener('keypress', function (event) {
         }
     }
 });
-
