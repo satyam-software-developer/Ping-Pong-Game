@@ -57,8 +57,10 @@ ping-pong-game/
 Feel free to fork the repository, make changes, and submit a pull request. Contributions are always welcome!
 # License
 This project is open source and available under the MIT License.
-Author
-Developed by [Your Name]
+# Demo
+ https://satyam-software-developer.github.io/Ping-Pong-Game/
+# Author
+Developed by Satyam Kumar
 
 
 
