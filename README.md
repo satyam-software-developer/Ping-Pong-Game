@@ -1,7 +1,9 @@
 # Ping Pong Game
 A simple Ping Pong game built using HTML, CSS, and JavaScript. This is a classic two-player game where you control paddles and try to score points by hitting the ball past the opponent's paddle.
+# Problem Statement
+  - https://classroom.codingninjas.com/app/classroom/me/22402/content/499577/offering/7446264?leftPanelTabValue=PROBLEM
 # Description
-This project is a browser-based Ping Pong game, where two players can control paddles and attempt to score by bouncing the ball back and forth. The game tracks the score for each player and announces a winner when the score limit is reached. It features smooth animations, keyboard controls, and simple game logic.
+This project is a browser-based Ping Pong game, where two players control paddles and attempt to score by bouncing the ball back and forth. The game tracks the score for each player and announces a winner when the score limit is reached. It features smooth animations, keyboard controls, and simple game logic.
 # Features
 1. Two-Player Gameplay:
 
