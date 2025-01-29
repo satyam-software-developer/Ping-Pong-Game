@@ -1,6 +1,7 @@
-# Ping Pong Game
 # Problem Statement
   - https://classroom.codingninjas.com/app/classroom/me/22402/content/499577/offering/7446264?leftPanelTabValue=PROBLEM  
+
+# Ping Pong Game
 A simple Ping Pong game built using HTML, CSS, and JavaScript. This is a classic two-player game where you control paddles and try to score points by hitting the ball past the opponent's paddle.
 
 # Description
